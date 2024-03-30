@@ -14,11 +14,13 @@ function Routes(props){
             {
                 routes.filter(d => d.AirlineID == selectedAirlineID).map(
                     route => {
+                        {/* console.log(route.ID); */}
                         // console.log(route.SourceLongitude);
                         const [x1, y1] = projection([route.SourceLongitude, route.SourceLatitude]);
                         const [x2, y2] = projection([route.DestLongitude, route.DestLatitude]);
                         {/* console.log(x1, y1, x2, y2); */}
                         return <line
+                            key={route.ID}
                             x1={`${x1}`}
                             x2={`${x2}`}
                             y1={`${y1}`}
